@@ -11,46 +11,46 @@ interface NavItem {
   href: string;
 }
 
-// Dipakai selama API belum selesai dimuat, atau kalau API gagal
-const FALLBACK_NAV: NavItem[] = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Overview", href: "/overview" },
-  { label: "Contact", href: "/contact" },
-];
-
 export default function Navbar() {
   const pathname = usePathname();
-  const [items, setItems] = useState<NavItem[]>(FALLBACK_NAV);
+  const [items, setItems] = useState<NavItem[]>([]);
 
   useEffect(() => {
     fetch(`${API}/navigation`)
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) {
+          throw new Error(`API response failed with status: ${r.status}`);
+        }
+        return r.json();
+      })
       .then((json) => {
+        console.log("Data mentah dari API:", json);
+        
         const raw = json.data ?? json;
-        if (!Array.isArray(raw)) return;
-        // Terima beberapa kemungkinan nama field dari API
+        if (!Array.isArray(raw)) {
+          console.warn("Format data dari API bukan array:", raw);
+          return;
+        }
+
         const list: NavItem[] = raw
           .map((i) => ({
             label: i.label ?? i.name ?? i.title ?? "",
             href: i.href ?? i.path ?? i.url ?? i.link ?? "#",
           }))
           .filter((i) => i.label);
-        if (list.length) setItems(list);
+
+        console.log("Data navigasi terproses:", list);
+        setItems(list);
       })
-      .catch(() => {});
+      .catch((err) => {
+        console.error("Gagal mengambil data dari API:", err);
+      });
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[#E0E0E0] bg-white/90 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-[#DADCE0] bg-white/90 backdrop-blur">
       <div className="mx-auto flex h-[72px] w-full max-w-[1200px] items-center justify-between px-6 lg:px-12">
-        {/* LOGO: ganti blok teks ini dengan <img src="/logo.png" alt="GDGoC UGM" className="h-9 w-auto" /> */}
-        <Link href="/" className="leading-tight">
-          <p className="text-[17px] font-medium text-[#171717]">Google Developer Groups</p>
-          <p className="text-[11px] text-[#5F6368]">
-            <span className="text-[#1A73E8]">On Campus</span> • Universitas Gadjah Mada
-          </p>
-        </Link>
+        <img src="/logo.png" alt="GDGoC UGM" className="h-7 w-auto" />
 
         <nav className="hidden items-center gap-2 md:flex">
           {items.map((item) => {
@@ -60,7 +60,7 @@ export default function Navbar() {
                 key={item.label}
                 href={item.href}
                 className={`rounded-full px-4 py-2 text-sm transition ${
-                  active ? "bg-[#E8F0FE] font-medium text-[#1A73E8]" : "text-[#5F6368] hover:text-[#171717]"
+                  active ? "bg-[#E8F0FE] font-bold text-[#4284F4]" : "text-[#5F6368] hover:text-[#171717]"
                 }`}
               >
                 {item.label}
