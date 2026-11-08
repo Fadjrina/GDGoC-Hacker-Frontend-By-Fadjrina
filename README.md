@@ -57,4 +57,5 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Public URL
-https://gdgoc-ugm-hacker-frontend-fadjrina.vercel.app/
+- Live Deployment: https://gdgoc-ugm-hacker-frontend-fadjrina.vercel.app/
+- Video Presentation: https://drive.google.com/file/d/1ALIjOCosFLnsbgw2l-ZKL3rFo9VBWBxd/view?usp=sharing
