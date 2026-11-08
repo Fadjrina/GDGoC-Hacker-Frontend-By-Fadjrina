@@ -38,7 +38,7 @@ export default function Navbar() {
             href: i.href ?? i.path ?? i.url ?? i.link ?? "#",
           }))
           .filter((i) => i.label);
-
+          
         console.log("Data navigasi terproses:", list);
         setItems(list);
       })
