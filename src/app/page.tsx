@@ -303,7 +303,7 @@ export default function Home() {
       <Container className="grid grid-cols-1 items-center gap-10 py-20 lg:grid-cols-2 lg:gap-16">
         <div className="rounded-3xl bg-[#FEF3D8] p-6">
           <div className="mb-4 ml-3 mt-2 flex justify-between">
-            <span className="text-[#5F6368] text-[10px]">IDEA -> PROTOTYPE</span>
+            <span className="text-[#5F6368] text-[10px]">IDEA {'->'} PROTOTYPE</span>
             <span className="text-[#1967D2] text-[15px]">{"< / >"}</span>
           </div>
           <div className="rounded-2xl bg-white p-6 shadow-sm">
