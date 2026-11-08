@@ -1,6 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GDGoC UGM Hacker Frontend - Fadjrina
 
-## Getting Started
+This project features a modern, responsive, and dynamic landing page and sub-pages built with Next.js, TypeScript, and Tailwind CSS.
+
+## 📌 Project Overview
+This repository houses the frontend for GDGoC UGM. It serves as a central hub for students and developers to learn about learning tracks, upcoming events, organizational background, and inquiry channels.
+
+## ✨ Key Features
+- Landing Page (/): Main showcase highlighting GDGoC UGM's mission, tracks, and calls-to-action.
+- About Page (/about): Detailed page about the organization with seamless client-side navigation.
+- Dynamic Navigation Bar: Fetches menu structures dynamically from API endpoint (/navigation) with intelligent fallback - mechanisms for manual routes.
+- Inquiry Categories Integration: Form structure ready for user support/inquiries fetched dynamically via /inquiry-categories.
+- Responsive UI/UX: Designed using Google-inspired aesthetics with full responsiveness across desktop and mobile devices.
+
+## 🛠️ Tech Stack & Architecture
+- Framework: Next.js (App Router)
+- Language: TypeScript
+- Styling: Tailwind CSS
+- Icons & Assets: Custom SVG & Next.js Image Optimization
+- Deployment Platform: Vercel
+
+## 📂 Directory Structure
+gdgoc-hacker-frontend/
+```bash
+├── public/                 # Static assets (logos, images)
+├── src/
+│   └── app/
+│       ├── layout.tsx      # Root layout & global providers
+│       ├── page.tsx        # Main Landing Page (Root route '/')
+│       ├── globals.css     # Global Tailwind styles
+│       ├── about/
+│       │   └── page.tsx    # Sub-route page ('/about')
+│       └── components/     # Modular UI components
+│           ├── navbar.tsx  # Dynamic & Client-side Header
+│           └── footer.tsx  # Footer component with internal links
+├── next.config.ts          # Next.js configuration
+├── package.json            # Dependencies and script definitions
+└── README.md               # Project documentation
+```
+
+## 🚀 Getting Started & Local Setup
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing.
+Prerequisites
 
 First, run the development server:
 
@@ -16,21 +56,5 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Public URL
+https://gdgoc-ugm-hacker-frontend-fadjrina.vercel.app/
